@@ -7,8 +7,19 @@
 </head>
 <body>
     <h1>じゃんけんAI</h1>
-    <button>グー</button>
-    <button>チョキ</button>
-    <button>パー</button>
+    <button onclick="play('👊')">グー</button>
+    <button onclick="play('✌️')">チョキ</button>
+    <button onclick="play('✋')">パー</button>
+
+    <p>あとで何かを入れる</p>
+
+    <script>
+        function play(){
+            const hands = ["グー","チョキ","パー"]
+            let cpu = hands[Math.floor(Math.random() * hands.length)]
+
+        }
+        
+    </script>
 </body>
 </html>
