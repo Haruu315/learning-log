@@ -3,21 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>じゃんけんAI</title>
+    <title>じゃんけん</title>
 </head>
 <body>
-    <h1>じゃんけんAI</h1>
+    <h1>じゃんけん</h1>
     <button onclick="play('👊')">グー</button>
     <button onclick="play('✌️')">チョキ</button>
     <button onclick="play('✋')">パー</button>
 
-    <p>あとで何かを入れる</p>
+    <p id="janken">AIは何を出すかな</p>
+    <p id="result">結果はっぴょー</p>
 
     <script>
-        function play(){
-            const hands = ["グー","チョキ","パー"]
+        function play(playerHand){
+            const hands = ["👊","✌️","✋"]
             let cpu = hands[Math.floor(Math.random() * hands.length)]
+            
+            document.getElementById("janken").textContent = cpu
 
+            let result;
+            //先にresltを宣言しておく
+            if(playerHand === cpu){
+                result = "あいこ"
+            }
+            else if (playerHand === "👊" && cpu === "✌️"||playerHand === "✌️" && cpu === "✋"||playerHand === "✋" && cpu === "👊"){
+                result = "勝ち"
+            }
+            else {
+                result = "負け"
+            }
+
+            document.getElementById("result").textContent = result
         }
         
     </script>
